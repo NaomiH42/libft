@@ -6,7 +6,7 @@
 /*   By: naomi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 15:36:29 by naomi             #+#    #+#             */
-/*   Updated: 2022/12/19 19:58:11 by naomi            ###   ########.fr       */
+/*   Updated: 2022/12/20 17:15:24 by naomi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ void	ft_strdel(char **as);
 void	ft_strclr(char *s);
 void	ft_striter(char *s, void (*f)(char *));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+void	*memmove(void *dest, const void *src, size_t n);
 
 #endif
