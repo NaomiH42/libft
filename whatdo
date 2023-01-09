@@ -1,0 +1,4 @@
+change strtrim
+add strlcpy
+add calloc
+:
