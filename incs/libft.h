@@ -4,7 +4,7 @@
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: naomi <marvin@42.fr>                       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                             2147483647                   +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 15:36:29 by naomi             #+#    #+#             */
 /*   Updated: 2022/12/20 19:02:56 by naomi            ###   ########.fr       */
 /*                                                                            */
@@ -16,7 +16,13 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stddef.h>
-	
+
+typedef struct	s_list
+{
+void		*content;
+struct s_list	*next;
+}		t_list;
+
 int	ft_isalpha(int c);
 int	ft_isdigit(int c);
 int	ft_isalnum(int c);

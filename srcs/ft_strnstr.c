@@ -6,7 +6,7 @@
 /*   By: naomi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 18:26:43 by naomi             #+#    #+#             */
-/*   Updated: 2023/01/10 15:00:29 by naomi            ###   ########.fr       */
+/*   Updated: 2023/01/11 14:52:26 by ehasalu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	i;
 
 	i = 0;
-	while (big[i] && i < len)
+	if (little[i] == '\0')
+		return ((char *)big);
+	while (big[i] && i < len && (ft_strlen(little) <= (len - i)))
 	{
 		if (is_needle(big, little, i))
 			return ((char *)(big + i));

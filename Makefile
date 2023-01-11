@@ -25,13 +25,10 @@ OBJS		= $(SRCS:%.c=$(OBJSDIR)/%.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@echo "Linking $@"
 	@ar rc $(NAME) $(OBJS)
-	@echo "Done!"
 
 $(OBJS): $(OBJSDIR)/%.o: $(SRCSDIR)/%.c
 	@mkdir -p $(@D)
-	@echo "Compiling $<"
 	@$(CC) $(CFLAGS) -I$(INCLUDES) -c $< -o $@
 
 clean:
