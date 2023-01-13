@@ -3,55 +3,47 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: naomi <marvin@42.fr>                       +#+  +:+       +#+         #
+#    By: ehasalu <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/12/19 16:33:50 by naomi             #+#    #+#              #
-#    Updated: 2022/12/19 23:39:09 by naomi            ###   ########.fr        #
+#    Created: 2023/01/13 16:54:08 by ehasalu           #+#    #+#              #
+#    Updated: 2023/01/13 16:54:08 by ehasalu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= libft.a
-SRCSDIR		= srcs
-SRCSBDIR	= srcsb
-OBJSDIR		= objs
-OBJSBDIR	= objsb
-INCLUDES	= incs
-SRCS		= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c     ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c ft_atoi.c      ft_strdup.c ft_substr.c ft_strlcpy.c ft_calloc.c ft_strtrim.c ft_split.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
-SRCSB		= ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c
+NAME =	libft
+SRCS =	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
+	ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c \
+	ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c \
+	ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c ft_atoi.c \
+	ft_strdup.c ft_substr.c ft_strlcpy.c ft_calloc.c ft_strtrim.c \
+	ft_split.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c \
+	ft_putnbr_fd.c
+SRCS_B =	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+		ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c
 
+OBJS = $(SRCS:.c=.o)
+OBJS_B = $(SRCS_B:.c=.o)
 
-CC			= cc
-CFLAGS		= -Wall -Wextra -Werror
-
-OBJS		= $(SRCS:%.c=$(OBJSDIR)/%.o)
-OBJSB		= $(SRCSB:%.c=$(OBJSBDIR)/%.o)
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@ar rc $(NAME) $(OBJS)
-	
-bonus: $(OBJSB)
-	@ar rc $(NAME) $(OBJSB)
+	ar rc $(NAME).a $(OBJS)
 
-$(OBJS): $(OBJSDIR)/%.o: $(SRCSDIR)/%.c
-	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) -I$(INCLUDES) -c $< -o $@
-	
-$(OBJSB): $(OBJSBDIR)/%.o: $(SRCSBDIR)/%.c
-	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) -I$(INCLUDES) -c $< -o $@
+%.o: %.c
+	$(CC) $(CFLAGS)  -c $< -o $@	
+
+bonus: $(OBJS) $(OBJS_B)
+	ar rc $(NAME).a $(OBJS) $(OBJS_B)
 
 clean:
-	rm -rf $(OBJSDIR)
+	rm -rf $(OBJS) $(OBJS_B)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -rf $(NAME).a
 
 re: fclean all
 
-test: all
-	./$(NAME)
-
-.PHONY: all clean fclean re test
-
+.PHONY: all clean fclean re
