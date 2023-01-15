@@ -6,7 +6,7 @@
 /*   By: ehasalu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:49:39 by ehasalu           #+#    #+#             */
-/*   Updated: 2023/01/13 16:49:40 by ehasalu          ###   ########.fr       */
+/*   Updated: 2023/01/15 18:30:35 by ehasalu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void	res_fill(int n, char *res)
 		i++;
 	}
 }
-
+#include <stdio.h>
 char	*ft_itoa(int n)
 {
 	char	*res;
