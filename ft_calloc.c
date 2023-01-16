@@ -6,7 +6,7 @@
 /*   By: ehasalu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:57:30 by ehasalu           #+#    #+#             */
-/*   Updated: 2023/01/13 13:48:31 by ehasalu          ###   ########.fr       */
+/*   Updated: 2023/01/16 17:21:10 by ehasalu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	temp = malloc(size * nmemb);
 	if (!temp)
 		return (NULL);
-	ft_bzero(temp, size * nmemb);
+	ft_memset(temp, 0, size * nmemb);
 	return (temp);
 }
